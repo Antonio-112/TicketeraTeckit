@@ -1,10 +1,11 @@
 package model;
 
-public class Cliente {
-	
+public class Cliente{
+
 	private String rut;
 	private String nombre;
 	private String fechaNacimiento;
+	
 	public Cliente() {
 		super();
 	}

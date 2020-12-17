@@ -1,6 +1,5 @@
 package model;
 
-import java.util.List;
 
 public class Entrada {
 	
@@ -9,7 +8,6 @@ public class Entrada {
 	private Integer asiento;
 	private String cliente;
 	private String vendedor;
-	private boolean vip;
 	
 	
 	public Entrada() {
@@ -24,7 +22,6 @@ public class Entrada {
 		this.asiento = asiento;
 		this.cliente = cliente;
 		this.vendedor = vendedor;
-		this.vip = vip;
 	}
 
 
@@ -78,20 +75,10 @@ public class Entrada {
 	}
 
 
-	public boolean isVip() {
-		return vip;
-	}
-
-
-	public void setVip(boolean vip) {
-		this.vip = vip;
-	}
-
-
 	@Override
 	public String toString() {
 		return "Entrada [nombre=" + nombre + ", precio=" + precio + ", asiento=" + asiento + ", cliente=" + cliente
-				+ ", vendedor=" + vendedor + ", vip=" + vip + "]";
+				+ ", vendedor=" + vendedor + "]";
 	}
 	
 	
