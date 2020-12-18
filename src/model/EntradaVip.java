@@ -9,11 +9,15 @@ public class EntradaVip extends Entrada {
 		super();
 	}
 
-	public EntradaVip(String nombre, Integer precio, Integer asiento, String cliente, String vendedor, boolean vip,
-			boolean vip2) {
-		super(nombre, precio, asiento, cliente, vendedor, vip);
-		vip = vip2;
+	
+
+	public EntradaVip(String nombre, Integer precio, Integer asiento, String cliente, String vendedor, boolean usada,
+			boolean usada2, boolean vip) {
+		super(nombre, precio, asiento, cliente, vendedor, usada);
+		this.vip = vip;
 	}
+
+
 
 	public boolean isVip() {
 		return vip;

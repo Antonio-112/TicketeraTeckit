@@ -8,6 +8,7 @@ public class Entrada {
 	private Integer asiento;
 	private String cliente;
 	private String vendedor;
+	private boolean usada;
 	
 	
 	public Entrada() {
@@ -15,13 +16,14 @@ public class Entrada {
 	}
 
 
-	public Entrada(String nombre, Integer precio, Integer asiento, String cliente, String vendedor, boolean vip) {
+	public Entrada(String nombre, Integer precio, Integer asiento, String cliente, String vendedor, boolean usada) {
 		super();
 		this.nombre = nombre;
 		this.precio = precio;
 		this.asiento = asiento;
 		this.cliente = cliente;
 		this.vendedor = vendedor;
+		this.usada = usada;
 	}
 
 
@@ -73,12 +75,23 @@ public class Entrada {
 	public void setVendedor(String vendedor) {
 		this.vendedor = vendedor;
 	}
+	
+
+
+	public boolean isUsada() {
+		return usada;
+	}
+
+
+	public void setUsada(boolean usada) {
+		this.usada = usada;
+	}
 
 
 	@Override
 	public String toString() {
 		return "Entrada [nombre=" + nombre + ", precio=" + precio + ", asiento=" + asiento + ", cliente=" + cliente
-				+ ", vendedor=" + vendedor + "]";
+				+ ", vendedor=" + vendedor + "usada=" + usada +"]";
 	}
 	
 	

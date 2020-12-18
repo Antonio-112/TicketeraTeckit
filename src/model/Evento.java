@@ -7,16 +7,18 @@ public class Evento {
 	private String nombre;
 	private Integer edadMinima;
 	private List<Entrada> entradas;
+	private List<EntradaVip> entradasVip;
 	private boolean enCurso;
 	public Evento() {
 		super();
 	}
-	public Evento(String nombre, Integer edadMinima, List<Entrada> entradas,boolean enCurso) {
+	public Evento(String nombre, Integer edadMinima, List<Entrada> entradas,boolean enCurso, List<EntradaVip> entradasVip) {
 		super();
 		this.setEnCurso(enCurso);
 		this.nombre = nombre;
 		this.edadMinima = edadMinima;
 		this.entradas = entradas;
+		this.entradasVip = entradasVip;
 	}
 	public String getNombre() {
 		return nombre;
@@ -35,6 +37,13 @@ public class Evento {
 	}
 	public void setEntradas(List<Entrada> entradas) {
 		this.entradas = entradas;
+	}
+
+	public List<EntradaVip> getEntradasVip() {
+		return entradasVip;
+	}
+	public void setEntradasVip(List<EntradaVip> entradasVip) {
+		this.entradasVip = entradasVip;
 	}
 	public boolean isEnCurso() {
 		return enCurso;
