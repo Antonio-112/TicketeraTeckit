@@ -91,7 +91,7 @@ public class Entrada {
 	@Override
 	public String toString() {
 		return "Entrada [nombre=" + nombre + ", precio=" + precio + ", asiento=" + asiento + ", cliente=" + cliente
-				+ ", vendedor=" + vendedor + "usada=" + usada +"]";
+				+ ", vendedor=" + vendedor + ", usada=" + usada +"]";
 	}
 	
 	
