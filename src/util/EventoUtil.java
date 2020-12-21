@@ -42,10 +42,12 @@ public class EventoUtil {
 		
 		entrada.setCliente(cliente.getNombre());
 		entrada.setVendedor(vendedor.getNombre());
-		entrada.setNombre("Entrada Vip");
+		entrada.setNombre("Entrada");
 
 		
 		if(edad.verificaEdad(evento, cliente)) {
+			entrada.setUsada(false);
+			
 			System.out.println("Ingrese el asiento de la entrada...");
 			entrada.setAsiento(leer.nextInt());
 			
@@ -55,6 +57,7 @@ public class EventoUtil {
 		
 			System.out.println("Vendiendo entrada a cliente "+cliente.getNombre()+" ("+cliente.getRut()+") para evento " + evento.getNombre());
 			vendedor.setCantEntradasVendidas(vendedor.getCantEntradasVendidas()+1);
+			
 			entradas.add(entrada);
 			evento.setEntradas(entradas);
 			
@@ -78,6 +81,8 @@ public class EventoUtil {
 		entrada.setVip(true);
 		
 		if(edad.verificaEdad(evento, cliente)) {
+			entrada.setUsada(false);
+			
 			System.out.println("Ingrese el asiento de la entrada...");
 			entrada.setAsiento(leer.nextInt());
 				
@@ -100,18 +105,15 @@ public class EventoUtil {
 		
 
 	}
-	//Metodo a arreglar !!
 	public void utilizarEntrada(Evento evento, Cliente cliente) {
 		if(evento.isEnCurso()) {
 			String nombre = cliente.getNombre();
 			if (evento.getEntradas()
-					.stream()
-					.filter(x -> !x.isUsada())
-					.anyMatch(x-> x.getNombre().equals(nombre))) {
-				evento.getEntradas()
-				.stream()
-				.filter(x -> x.getNombre().equals(nombre)).forEach(x->x.setUsada(true));
+					.stream().filter(x->!x.isUsada())
+					.anyMatch(x-> x.getCliente().equals(nombre))) {
+				
 				System.out.println("Usando entrada con cliente "+nombre+" ("+cliente.getRut()+") para evento "+evento.getNombre());
+				evento.getEntradas().stream().filter(x->x.getCliente().equals(nombre)).forEach(x->x.setUsada(true));
 				System.out.println("Entrada encontrada, "+nombre+" puede pasar.");
 				
 			}else {
@@ -119,6 +121,33 @@ public class EventoUtil {
 				System.out.println("Entrada para rut "+cliente.getRut()+" ya fue usada, no puede pasar.");
 
 			}
+		}else if(!evento.isEnCurso()){
+			System.out.println("Usando entrada con cliente "+cliente.getNombre()+" ("+cliente.getRut()+") para evento "+evento.getNombre());
+			System.out.println("No se puede usar la entrada porque el evento "+evento.getNombre()+" no está en curso.");
+			
+		}
+	}
+
+	public void utilizarEntradaVip(Evento evento, Cliente cliente) {
+		if(evento.isEnCurso()) {
+			String nombre = cliente.getNombre();
+			if (evento.getEntradas()
+					.stream().filter(x->!x.isUsada())
+					.anyMatch(x-> x.getCliente().equals(nombre))) {
+				
+				System.out.println("Usando entrada con cliente "+nombre+" ("+cliente.getRut()+") para evento "+evento.getNombre());
+				evento.getEntradas().stream().filter(x->x.getCliente().equals(nombre)).forEach(x->x.setUsada(true));
+				System.out.println("Entrada encontrada, "+nombre+" puede pasar.");
+				
+			}else {
+				System.out.println("Usando entrada con cliente "+nombre+" ("+cliente.getRut()+") para evento "+evento.getNombre());
+				System.out.println("Entrada para rut "+cliente.getRut()+" ya fue usada, no puede pasar.");
+
+			}
+		}else if(!evento.isEnCurso()){
+			System.out.println("Usando entrada con cliente "+cliente.getNombre()+" ("+cliente.getRut()+") para evento "+evento.getNombre());
+			System.out.println("No se puede usar la entrada porque el evento "+evento.getNombre()+" no está en curso.");
+			
 		}
 	}
 
