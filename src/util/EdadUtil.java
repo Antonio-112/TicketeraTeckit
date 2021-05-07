@@ -7,7 +7,7 @@ import java.time.format.DateTimeFormatter;
 import model.Cliente;
 import model.Evento;
 
-public class Edad {
+public class EdadUtil {
 	
 	public boolean verificaEdad(Evento evento, Cliente cliente) {
 		DateTimeFormatter fmt = DateTimeFormatter.ofPattern("dd/MM/yyyy");

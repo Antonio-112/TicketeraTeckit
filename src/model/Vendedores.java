@@ -24,8 +24,7 @@ public class Vendedores extends Cliente{
 
 	@Override
 	public String toString() {
-		return "Vendedores [cantEntradasVendidas=" + cantEntradasVendidas + ", Rut=" + getRut() + ", Nombre="
-				+ getNombre() + ", FechaNacimiento=" + getFechaNacimiento();
+		return "Vendedores [Nombre = "+getNombre()+"cantEntradasVendidas=" + cantEntradasVendidas + ", Rut=" + getRut() + ", FechaNacimiento=" + getFechaNacimiento();
 	}
 	
 	

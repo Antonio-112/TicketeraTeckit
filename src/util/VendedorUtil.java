@@ -8,8 +8,9 @@ public class VendedorUtil {
 	
 	
 	public Vendedores crearVendedor() {
-		Vendedores vendedor = new Vendedores();
+		
 		Scanner leer = new Scanner(System.in);
+		Vendedores vendedor = new Vendedores();
 		vendedor.setCantEntradasVendidas(0);
 
 		System.out.println("Ingrese nombre de vendedor...");
@@ -20,7 +21,7 @@ public class VendedorUtil {
 			
 		System.out.println("Ingrese fecha de nacimiento de vendedor... (dd/MM/yyyy)");
 		vendedor.setFechaNacimiento(leer.next());
-			
+					
 		return vendedor;
 	}
 
